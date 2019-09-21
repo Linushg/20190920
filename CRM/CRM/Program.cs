@@ -56,7 +56,25 @@ namespace CRM
                     cont = false;
                 }
             }
-            Console.WriteLine();
+
+            int favCount = 0;
+            Console.WriteLine("\nDu har {0} st kontakter", CustomerInfo.Count);
+            foreach (CustomerInfo tot in CustomerInfo)
+            {
+                Console.WriteLine("{0} {1} {2} {3}", tot.Name, tot.phonenumber, tot.mail, tot.favorit);
+                if (tot.favorit.Equals ("Ja"))
+                {
+                    favCount++;
+                }
+            }
+            Console.WriteLine("\nDu har {0} st favoriter", favCount);
+            foreach (CustomerInfo tot in CustomerInfo)
+            {
+                if (tot.favorit.Equals("Ja"))
+                {
+                    Console.WriteLine("{0} {1} {2} {3}", tot.Name, tot.phonenumber, tot.mail, tot.favorit);
+                }
+            }
         }
     }
 }
