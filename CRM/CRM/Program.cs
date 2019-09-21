@@ -10,10 +10,6 @@ namespace CRM
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ange namn");
-            Console.ReadLine();
-
-
             System.Collections.ArrayList CustomerInfo = new System.Collections.ArrayList();
 
             CustomerInfo.Add(new CustomerInfo() { Name = "Tony Stark", phonenumber = "0123456789", mail = "tony.stark@iron.man", favorit = "-" });
@@ -23,9 +19,29 @@ namespace CRM
             CustomerInfo.Add(new CustomerInfo() { Name = "Thor", phonenumber = "1800666999", mail = "thor@asgard.se", favorit = "Yes" });
             CustomerInfo.Add(new CustomerInfo() { Name = "Nick Fury", phonenumber = "1964879152", mail = "fury@shield.hd", favorit = "-" });
 
-            foreach (CustomerInfo tot in CustomerInfo) 
-            {
-               Console.WriteLine("{0} {1} {2} {3}", tot.Name, tot.phonenumber, tot.mail, tot.favorit);
+            bool cont = true;
+            String instr;
+            String again;
+            while (cont == true) {
+                Console.WriteLine("Ange namn");
+                instr = Console.ReadLine();
+
+
+                foreach (CustomerInfo tot in CustomerInfo)
+                {
+                    if (instr.Equals(tot.Name))
+                    {
+                        Console.WriteLine("{0} {1} {2} {3}", tot.Name, tot.phonenumber, tot.mail, tot.favorit);
+                    }
+                }
+                Console.WriteLine("Tack, registrerad, mer? (Ja/Nej)");
+                again = Console.ReadLine();
+                if (again.Equals ("Nej"))
+                {
+                    cont = false;
+                }
+                    
+
             }
         }
     }
